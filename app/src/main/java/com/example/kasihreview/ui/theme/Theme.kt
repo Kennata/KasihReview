@@ -18,7 +18,8 @@ import com.example.kasihreview.R
 val OpenSans = FontFamily(
     Font(R.font.osr, FontWeight.Normal),
     Font(R.font.osb, FontWeight.Bold),
-    Font(R.font.oseb, FontWeight.ExtraBold)
+    Font(R.font.oseb, FontWeight.ExtraBold),
+    Font(R.font.ossb, FontWeight.SemiBold)
 )
 
 private val DarkColorScheme = darkColorScheme(
