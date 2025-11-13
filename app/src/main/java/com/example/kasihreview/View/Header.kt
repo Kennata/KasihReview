@@ -38,7 +38,7 @@ fun header(){
         Image(imageVector = ImageVector.vectorResource(R.drawable.menubar), contentDescription = "")
         Spacer(
             modifier = Modifier
-                .width(280.dp)
+                .width(330.dp)
         )
         Image(painter = painterResource(R.drawable.ella), contentDescription = "bidadari cantik"
         , modifier = Modifier

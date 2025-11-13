@@ -43,14 +43,12 @@ import com.example.kasihreview.NavObjects.HomePage
 import com.example.kasihreview.NavObjects.daftarPage
 import com.example.kasihreview.R
 import com.example.kasihreview.Security.Hash
+import com.example.kasihreview.ViewModel.KRviewModel
 import com.example.kasihreview.ui.theme.OpenSans
 
 @SuppressLint("InvalidColorHexValue")
 @Composable
-fun loginPage(navController: NavController){
-    val hashing = Hash()
-    val salt = hashing.generateSalt()
-    val hash = hashing.hashPasswordPBKDF2("kenken", salt)
+fun loginPage(navController: NavController, viewModel: KRviewModel){
 
     var userNameInput by remember {
         mutableStateOf("")

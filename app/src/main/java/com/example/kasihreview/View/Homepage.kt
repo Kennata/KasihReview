@@ -1,6 +1,7 @@
 package com.example.kasihreview.View
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.example.kasihreview.NavObjects.MovieDetails
 import com.example.kasihreview.ViewModel.KRviewModel
 import com.example.kasihreview.ui.theme.OpenSans
 
@@ -50,7 +52,7 @@ fun homePage(navController: NavController, viewModel: KRviewModel){
                 modifier = Modifier
             )
             Text(
-                text = "Joko",
+                text = "Ella Freya",
                 fontFamily = OpenSans,
                 fontWeight = FontWeight.Bold,
                 fontSize = 18.sp,
@@ -87,6 +89,10 @@ fun homePage(navController: NavController, viewModel: KRviewModel){
                         contentDescription = movie.title,
                         modifier = Modifier
                             .clip(RoundedCornerShape(5.dp))
+                            .clickable {
+                                movie.movie_Id?.let { viewModel.getMovieDetailsById(it) }
+                                navController.navigate(MovieDetails)
+                            }
                     )
                 }
 

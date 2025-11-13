@@ -11,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.kasihreview.NavObjects.HomePage
+import com.example.kasihreview.NavObjects.MovieDetails
 import com.example.kasihreview.NavObjects.daftarPage
 import com.example.kasihreview.NavObjects.loginPage
 import com.example.kasihreview.ViewModel.KRviewModel
@@ -30,6 +31,11 @@ fun app(){
             if (currentRoute !in noHeaderRoutes) {
                 header()
             }
+        },
+        bottomBar = {
+            if (currentRoute !in noHeaderRoutes) {
+                bottomBar()
+            }
         }
     ) {innerPadding ->
         NavHost(
@@ -39,13 +45,16 @@ fun app(){
                 .padding(innerPadding)
         ) {
             composable<loginPage>{
-                loginPage(navController)
+                loginPage(navController, VM)
             }
             composable<daftarPage>{
                 daftarPage(navController)
             }
             composable<HomePage>{
                 homePage(navController,VM)
+            }
+            composable<MovieDetails>{
+                movieDetails(navController,VM)
             }
         }
     }

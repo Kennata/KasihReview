@@ -23,6 +23,10 @@ class Hash {
         return Base64.encodeToString(key, Base64.NO_WRAP)
     }
 
+    fun saltToBase64(salt: ByteArray): String = Base64.encodeToString(salt, Base64.NO_WRAP)
+    fun base64ToSalt(base64: String): ByteArray =
+        Base64.decode(base64, Base64.NO_WRAP)
+
     fun verifyPassword(
         passwordAttempt: String,
         storedHashBase64: String,
